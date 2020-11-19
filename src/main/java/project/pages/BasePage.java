@@ -1,6 +1,11 @@
 package project.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
@@ -15,6 +20,13 @@ public abstract class BasePage {
   //method for get driver from any page
   public static WebDriver getDriver() {
     return driver;
+  }
+
+  public WebElement find(By locator){
+    return getDriver().findElement(locator);
+  }
+  public WebElement waitUntilVisible(By locator, int seconds){
+    return new WebDriverWait(getDriver(), seconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
   }
 
 }
