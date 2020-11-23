@@ -1,41 +1,34 @@
 package project.tests;
-
-import org.junit.Assert;
-import org.junit.Test;
 import project.pages.MainPage;
-import project.pages.SuccessRegistrationPage;
-import util.RandomEmail;
+import org.junit.Test;
+import project.pages.MyAccountPage;
+import project.pages.MainPage;
 
-public class LoginTest extends BaseTest {
+import static org.assertj.core.api.Assertions.assertThat;
+import static project.pages.BasePage.getDriver;
 
-  private MainPage mainPage;
+public class LoginTest extends BaseTest{
+    static MainPage mainPage;
 
-  @Test
-  public void registrationWithValidCredentials() {
-    String firtsname = "Anna";
-    String secondname = "Anna";
-    String email = RandomEmail.generateEmail() + "@mailinator.com";
-    String telephone = "+33333333";
-    String password = "111111";
-    String successRegMessage = "Your Account Has Been Created!";
+    @Test
+    public void successfulLoginTest() {
+        String email = "accountfortestinglogin@mailinator.com";
+        String password = "111111";
+        String leftMenuHeader = "My Account";
 
-    mainPage = new MainPage();
-    mainPage.openMainPage();
+        mainPage = new MainPage();
+        mainPage.openMainPage();
 
-    SuccessRegistrationPage regMessage = (SuccessRegistrationPage) mainPage
-            .myAccountButtonClick()
-            .registrationPageClick()
-            .setFirstName(firtsname)
-            .setLastName(secondname)
-            .setEmail(email)
-            .setTelephone(telephone)
-            .setPassword(password)
-            .confirmPassword(password)
-            .clickPrivacyPolicyCheckbox()
-            .submitForm();
+        MyAccountPage login = mainPage
+                .myAccountButtonClick()
+                .loginPageClick()
+                .setEmail(email)
+                .setPassword(password)
+                .submitLoginForm();
 
-    Assert.assertEquals(successRegMessage, regMessage.getTextFromSuccessPage());
-  }
-  //assertions
+        assertThat(login.getLeftHeaderText().equals(leftMenuHeader));
+
+    }
+
 
 }

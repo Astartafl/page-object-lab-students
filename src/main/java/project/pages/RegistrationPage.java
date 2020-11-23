@@ -1,6 +1,7 @@
 package project.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class RegistrationPage extends BasePage {
     By firstNameInput = By.xpath("//input[@name='firstname']");
@@ -11,6 +12,7 @@ public class RegistrationPage extends BasePage {
     By confirmPasswordInput = By.xpath("//input[@name='confirm']");
     By privacyPolicyCheckbox = By.xpath("//input[@name='agree']");
     By submitRegistrationForm = By.xpath("//input[@type='submit']");
+    By dangerMessage = By.xpath("//div[@class='text-danger']");
 
     public RegistrationPage setFirstName(String firstName) {
         waitUntilVisible(firstNameInput, 10);
@@ -55,5 +57,9 @@ public class RegistrationPage extends BasePage {
         } else {
             return new SuccessRegistrationPage();
         }
+    }
+
+    public String getDangerMessageText(){
+        return find(dangerMessage).getText();
     }
 }
