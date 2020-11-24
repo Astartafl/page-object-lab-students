@@ -27,7 +27,6 @@ public class AddToWishList extends BaseTest {
                 .setEmail(email)
                 .setPassword(password)
                 .submitLoginForm();
-
     }
 
     @Test
