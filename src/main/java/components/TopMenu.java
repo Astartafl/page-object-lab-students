@@ -5,7 +5,7 @@ import components.enums.TopMenuComponents;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-
+import project.pages.ProductsMonitorsPage;
 
 public class TopMenu {
     private static WebDriver webDriver;
@@ -31,24 +31,8 @@ public class TopMenu {
         }
         return this;
     }
-    public TopMenu selectSubmenuMonitors(){
+    public ProductsMonitorsPage selectSubmenuMonitors(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(monitorSubmenuDropDownLink)).click();
-        return this;
+        return new ProductsMonitorsPage();
     }
-
-
-//    public TopMenu hoverDesktopDropDown() {
-//        Actions actions = new Actions(webDriver);
-//        actions.moveToElement(webDriver.findElement(desktopDropDown)).build().perform();
-//        return this;
-//    }
-//    public TopMenu hoverComponentsDropDown() {
-//        Actions actions = new Actions(webDriver);
-//        actions.moveToElement(webDriver.findElement(componentsDropDown)).build().perform();
-//        return this;
-//    }
-
-
-
-
 }
