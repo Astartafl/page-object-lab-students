@@ -1,6 +1,6 @@
 package components.enums;
 
-public enum SubmenuMonitor {
+public enum SubmenuMonitorComponents {
     MONITORS,
     PRINTERS
 }

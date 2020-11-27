@@ -3,9 +3,6 @@ package project.pages;
 import org.openqa.selenium.By;
 
 public class MainPage extends BasePage {
-  By myAccountButton = By.xpath("//a[@title='My Account']");
-  By registerButton = By.xpath("//a[text()='Register']");
-  By loginButton = By.xpath("//a[text()='Login']");
 
   public MainPage openMainPage() {
     getDriver().get("https://demo.opencart.com/");
