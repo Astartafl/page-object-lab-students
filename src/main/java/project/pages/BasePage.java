@@ -1,5 +1,6 @@
 package project.pages;
 
+import components.TopBar;
 import components.TopMenu;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -14,9 +15,12 @@ public abstract class BasePage {
   //protected WebDriver variable (only classes in same folder (pages) will get driver)
   protected static WebDriver driver;
   private TopMenu topMenu;
+  private TopBar topBar;
+
 
   public BasePage(){
     topMenu = new TopMenu(getDriver());
+    topBar = new TopBar(getDriver());
   }
   //set driver for base page
   public static void setDriver(WebDriver webDriver) {

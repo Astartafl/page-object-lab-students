@@ -1,5 +1,6 @@
 package project.tests;
 
+import components.TopBar;
 import components.enums.TopMenuComponents;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +22,8 @@ public class AddToWishList extends BaseTest {
         mainPage = new MainPage();
         mainPage.openMainPage();
 
-        myAccountPage = mainPage
+        myAccountPage = mainPage.openMainPage()
+                .getTopBar()
                 .myAccountButtonClick()
                 .loginPageClick()
                 .setEmail(email)

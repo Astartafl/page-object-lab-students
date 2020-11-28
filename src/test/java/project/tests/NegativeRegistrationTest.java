@@ -25,7 +25,7 @@ public class NegativeRegistrationTest extends BaseTest {
         mainPage = new MainPage();
         mainPage.openMainPage();
 
-        mainPage
+        mainPage.getTopBar()
                 .myAccountButtonClick()
                 .registrationPageClick()
                 .setFirstName(firtsname)

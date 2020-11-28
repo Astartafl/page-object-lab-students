@@ -20,6 +20,7 @@ public class LoginTest extends BaseTest{
         mainPage.openMainPage();
 
         MyAccountPage login = mainPage
+                .getTopBar()
                 .myAccountButtonClick()
                 .loginPageClick()
                 .setEmail(email)

@@ -23,6 +23,7 @@ public class PositiveRegistrationTest extends BaseTest {
     mainPage.openMainPage();
 
     SuccessRegistrationPage regMessage = (SuccessRegistrationPage) mainPage
+            .getTopBar()
             .myAccountButtonClick()
             .registrationPageClick()
             .setFirstName(firtsname)
